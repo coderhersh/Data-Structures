@@ -14,8 +14,8 @@ class LinkedList{
     int length;
 public:
     LinkedList(){ length = 0; head = NULL; }
-    Node *get_head(){ return head; }
-    int len(){ return length; }
+    Node *get_head() const{ return head; }
+    int len() const{ return length; }
     void insert(int d){
         Node *temp = new Node;
         temp->data = d;
