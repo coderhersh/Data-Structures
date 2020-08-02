@@ -89,3 +89,14 @@ void stack::show(){
     }
     cout<<endl;
 }
+
+stack::~stack(){
+    Node *temp = this->head, *next;
+
+    while (temp != nullptr)
+    {
+        next = temp->next;
+        delete temp;
+        temp = next;
+    }       
+}
