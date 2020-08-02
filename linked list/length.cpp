@@ -12,10 +12,9 @@ int count(Node *head){
 }
 
 int r_count(Node *head){
-    int COUNT = c;
     if (head == NULL)
     {
-        return COUNT;
+        return 0;
     }
     else
     {
