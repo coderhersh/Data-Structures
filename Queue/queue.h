@@ -15,6 +15,7 @@ private:
     unsigned int count;
 public:
     queue(){ this->head = this->tail = nullptr; this->count = 0; }
+    ~queue();
     Node* get_head() const{ return this->head; }
     Node* get_tail() const{ return this->tail; }
     void enqueue(int a);
@@ -57,4 +58,16 @@ void queue::show(){
         temp = temp->next;
     }
     cout<<endl;
+}
+
+queue::~queue(){
+    Node *temp = this->head;
+
+    while (temp != nullptr)
+    {
+        head = head->next;
+        delete temp;
+        temp = head;
+    }
+    
 }
