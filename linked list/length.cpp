@@ -11,7 +11,7 @@ int count(Node *head){
     return c;
 }
 
-int r_count(Node *head, int c){
+int r_count(Node *head){
     int COUNT = c;
     if (head == NULL)
     {
@@ -19,16 +19,13 @@ int r_count(Node *head, int c){
     }
     else
     {
-        ++COUNT;
-        cout<<"ok\n";
-        return r_count(head->next, COUNT);
+        return 1 + r_count(head->next);
     }
 }
 
 int main(){
     LinkedList l;
     l.generate(10);
-    Node *first = l.get_head();
-    cout<<r_count(first, 0)<<"\n";
+    cout<<r_count(l.get_head())<<"\n";
     return 0;
 }
