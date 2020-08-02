@@ -1,4 +1,6 @@
 #include<iostream>
+#include<cstdlib>
+#include<ctime>
 
 using namespace std;
 
@@ -15,12 +17,21 @@ private:
     int count;
 public:
     stack(){ this->head = this->tail = nullptr; this->count = 0; }
+    ~stack();
     void push(int a);
     void generate_stack(int n);
     void pop(int a);
     void show();
     int size() const{ return this->count; }
     bool isEmpty(){ return (this->count == 0)? true: false; }
+    Node *get_last(){
+        Node *temp = this->head;
+        while (temp->next != nullptr)
+        {
+            temp = temp->next;
+        }
+        return temp;
+    }
 };
 
 void stack::push(int a){
@@ -45,16 +56,25 @@ void stack::push(int a){
 }
 
 void stack::generate_stack(int n){
-    // Node *temp = new Node();
-    // temp->next = nullptr;
-
-    // while(n)
-    // {
-
-    //     ++this->count;
-    //     --n;
-    // }
-    
+    Node *temp, *last = this->get_last();
+    while (n)
+    {
+        temp = new Node;
+        temp->data = ( rand() % 30 + 1);
+        temp->next = nullptr;
+        if (this->head == nullptr)
+        {
+            this->head = last = temp;
+        }
+        else
+        {
+            last->next = temp;
+            last = temp;
+        }
+        
+        --n;
+        ++this->count;
+    }
 }
 
 void stack::pop(int a){
