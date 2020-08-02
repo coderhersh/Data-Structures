@@ -48,7 +48,7 @@ void DCLinkedList::insert(int n){
         temp->left = t;
         temp->right = this->head;
     }
-    
+    ++this->count;
 }
 
 void DCLinkedList::remove(int n){
@@ -60,6 +60,8 @@ void DCLinkedList::remove(int n){
             temp->left->right = temp->right;
             temp->right->left = temp->left;
             delete temp;
+            --this->count;
+            return;
         }
         temp = temp->right;
         
