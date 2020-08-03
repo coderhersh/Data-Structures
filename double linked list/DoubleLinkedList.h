@@ -13,6 +13,7 @@ Node *head;
 unsigned int count;
 public:
     DoubleLinkedList(){ this->head = nullptr; this->count = 0; }
+    ~DoubleLinkedList();
     void insert(int n);
     void remove(int n);
     void show();
@@ -67,4 +68,15 @@ void DoubleLinkedList::show(){
         temp = temp->right;
     }   
     cout<<endl;
+}
+
+DoubleLinkedList::~DoubleLinkedList(){
+    Node *temp = this->head, *next;
+    while (temp->right != nullptr)
+    {
+        next = temp->right;
+        delete temp;
+        temp = next;
+    }
+    delete temp;    
 }
