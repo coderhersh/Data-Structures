@@ -1,3 +1,5 @@
+// Time Complexity: O(N^2)
+// Space Complexity: O(N) Auxiliary Space
 class Solution {
 private:
     int height(Node* root) {
